@@ -48,25 +48,25 @@ const Header = () => {
           <Link href="/" className="text-white hover:text-gray-300 transition-colors border-b-2 border-white">
             Home
           </Link>
-          <Link href="/about" className="text-white hover:text-gray-300 transition-colors">
+          <Link href="/about/" className="text-white hover:text-gray-300 transition-colors">
             About Us
           </Link>
           
-          <Link href="/course" className="text-white hover:text-gray-300 transition-colors">
+          <Link href="/course/" className="text-white hover:text-gray-300 transition-colors">
             Course
           </Link>
          
-          <Link href="/blog" className="text-white hover:text-gray-300 transition-colors">
+          <Link href="/blog/" className="text-white hover:text-gray-300 transition-colors">
             Blog
           </Link>
-          <Link href="/contact" className="text-white hover:text-gray-300 transition-colors">
+          <Link href="/contact/" className="text-white hover:text-gray-300 transition-colors">
             Contact
           </Link>
         </nav>
 
         {/* Contact CTA */}
         <Link 
-          href="/contact" 
+          href="/contact/" 
           className="hidden md:inline-flex rounded-full border border-white text-white px-5 py-1.5 text-sm hover:bg-white hover:text-black transition-colors items-center"
         >
           CONTACT US
@@ -91,10 +91,10 @@ const Header = () => {
         <div className="md:hidden border-t border-white/10 bg-black">
           <nav className="container mx-auto px-6 py-4 flex flex-col gap-3">
             <Link href="/" className="text-white py-2" onClick={() => setMenuOpen(false)}>Home</Link>
-            <Link href="/about" className="text-white py-2" onClick={() => setMenuOpen(false)}>About Us</Link>
-            <Link href="/course" className="text-white py-2" onClick={() => setMenuOpen(false)}>Course</Link>
-            <Link href="/blog" className="text-white py-2" onClick={() => setMenuOpen(false)}>Blog</Link>
-            <Link href="/contact" className="text-white py-2" onClick={() => setMenuOpen(false)}>Contact</Link>
+            <Link href="/about/" className="text-white py-2" onClick={() => setMenuOpen(false)}>About Us</Link>
+            <Link href="/course/" className="text-white py-2" onClick={() => setMenuOpen(false)}>Course</Link>
+            <Link href="/blog/" className="text-white py-2" onClick={() => setMenuOpen(false)}>Blog</Link>
+            <Link href="/contact/" className="text-white py-2" onClick={() => setMenuOpen(false)}>Contact</Link>
           </nav>
         </div>
       )}
