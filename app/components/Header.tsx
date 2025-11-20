@@ -1,0 +1,98 @@
+'use client';
+
+import Link from 'next/link';
+import Image from 'next/image';
+import { useState, useEffect } from 'react';
+
+const Header = () => {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 10;
+      if (isScrolled !== scrolled) {
+        setScrolled(isScrolled);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [scrolled]);
+
+  return (
+    <header 
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        scrolled ? 'bg-black/80 backdrop-blur-sm' : 'bg-black'
+      }`}
+    >
+      <div className="container mx-auto px-6 py-3 flex items-center justify-between">
+        {/* Logo and Tagline */}
+        <Link href="/" className="flex items-center">
+          <div className="flex items-center">
+            <div className="w-8 h-8 mr-2 rounded-full bg-blue-500 overflow-hidden">
+              <Image 
+                src="/globe.svg" 
+                alt="Oregon Systems Logo" 
+                width={32} 
+                height={32} 
+                className="object-cover"
+              />
+            </div>
+            <div className="text-white font-bold text-lg">ATLANTA SOC</div>
+          </div>
+        </Link>
+
+        {/* Navigation Links */}
+        <nav className="hidden md:flex items-center space-x-6">
+          <Link href="/" className="text-white hover:text-gray-300 transition-colors border-b-2 border-white">
+            Home
+          </Link>
+          <Link href="/about" className="text-white hover:text-gray-300 transition-colors">
+            About Us
+          </Link>
+          <Link href="/services" className="text-white hover:text-gray-300 transition-colors">
+            Courses
+          </Link>
+          <Link href="/solutions" className="text-white hover:text-gray-300 transition-colors">
+            Solutions
+          </Link>
+         
+          <Link href="/use-cases" className="text-white hover:text-gray-300 transition-colors">
+            Use Cases
+          </Link>
+          <Link href="/partners" className="text-white hover:text-gray-300 transition-colors">
+            Partners
+          </Link>
+          <Link href="/careers" className="text-white hover:text-gray-300 transition-colors">
+            Careers
+          </Link>
+          <Link href="/blog" className="text-white hover:text-gray-300 transition-colors">
+            Blog
+          </Link>
+        </nav>
+
+        {/* Contact CTA */}
+        <Link 
+          href="/contact" 
+          className="rounded-full border border-white text-white px-5 py-1.5 text-sm hover:bg-white hover:text-black transition-colors flex items-center"
+        >
+          CONTACT US
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
+        </Link>
+
+        {/* Mobile Menu Button - Hidden on desktop */}
+        <button className="md:hidden text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </header>
+  );
+};
+
+export default Header;
+
+
