@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react';
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -50,31 +51,23 @@ const Header = () => {
           <Link href="/about" className="text-white hover:text-gray-300 transition-colors">
             About Us
           </Link>
-          <Link href="/services" className="text-white hover:text-gray-300 transition-colors">
-            Courses
-          </Link>
-          <Link href="/solutions" className="text-white hover:text-gray-300 transition-colors">
-            Solutions
+          
+          <Link href="/course" className="text-white hover:text-gray-300 transition-colors">
+            Course
           </Link>
          
-          <Link href="/use-cases" className="text-white hover:text-gray-300 transition-colors">
-            Use Cases
-          </Link>
-          <Link href="/partners" className="text-white hover:text-gray-300 transition-colors">
-            Partners
-          </Link>
-          <Link href="/careers" className="text-white hover:text-gray-300 transition-colors">
-            Careers
-          </Link>
           <Link href="/blog" className="text-white hover:text-gray-300 transition-colors">
             Blog
+          </Link>
+          <Link href="/contact" className="text-white hover:text-gray-300 transition-colors">
+            Contact
           </Link>
         </nav>
 
         {/* Contact CTA */}
         <Link 
           href="/contact" 
-          className="rounded-full border border-white text-white px-5 py-1.5 text-sm hover:bg-white hover:text-black transition-colors flex items-center"
+          className="hidden md:inline-flex rounded-full border border-white text-white px-5 py-1.5 text-sm hover:bg-white hover:text-black transition-colors items-center"
         >
           CONTACT US
           <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -83,12 +76,28 @@ const Header = () => {
         </Link>
 
         {/* Mobile Menu Button - Hidden on desktop */}
-        <button className="md:hidden text-white">
+        <button
+          className="md:hidden text-white"
+          aria-label="Toggle menu"
+          aria-expanded={menuOpen ? 'true' : 'false'}
+          onClick={() => setMenuOpen((v) => !v)}
+        >
           <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
       </div>
+      {menuOpen && (
+        <div className="md:hidden border-t border-white/10 bg-black">
+          <nav className="container mx-auto px-6 py-4 flex flex-col gap-3">
+            <Link href="/" className="text-white py-2" onClick={() => setMenuOpen(false)}>Home</Link>
+            <Link href="/about" className="text-white py-2" onClick={() => setMenuOpen(false)}>About Us</Link>
+            <Link href="/course" className="text-white py-2" onClick={() => setMenuOpen(false)}>Course</Link>
+            <Link href="/blog" className="text-white py-2" onClick={() => setMenuOpen(false)}>Blog</Link>
+            <Link href="/contact" className="text-white py-2" onClick={() => setMenuOpen(false)}>Contact</Link>
+          </nav>
+        </div>
+      )}
     </header>
   );
 };
