@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Oregon Systems",
-  description: "Protecting Today's Systems, Powering Tomorrow's Vision",
+  title: "Atlanta SOC",
+  description: "Engineering cybersecurity training and solutions in Atlanta. Protecting critical infrastructure and operational technology.",
 };
 
 export default function RootLayout({
