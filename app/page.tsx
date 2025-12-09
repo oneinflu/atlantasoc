@@ -9,11 +9,12 @@ import { useEffect, useRef, useState } from "react";
 type CountUpProps = {
   end: number;
   duration?: number;
+  prefix?: string;
   suffix?: string;
   className?: string;
 };
 
-function CountUp({ end, duration = 1200, suffix = "", className = "" }: CountUpProps) {
+function CountUp({ end, duration = 1200, prefix = "", suffix = "", className = "" }: CountUpProps) {
   const [value, setValue] = useState(0);
   const [started, setStarted] = useState(false);
   const ref = useRef<HTMLSpanElement | null>(null);
@@ -47,6 +48,7 @@ function CountUp({ end, duration = 1200, suffix = "", className = "" }: CountUpP
 
   return (
     <span ref={ref} className={className}>
+      {prefix}
       {formatted}
       {suffix}
     </span>
@@ -61,11 +63,11 @@ type Slide = {
 
 function SolutionsCarousel() {
   const slides: Slide[] = [
-    { title: "Insider Risk Solutions", image: "https://images.unsplash.com/photo-1605902711622-cfb43c9b3f87?q=80&w=1400&auto=format&fit=crop" },
-    { title: "Data Diode", image: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1400&auto=format&fit=crop" },
-    { title: "Cross Domain solution", image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1400&auto=format&fit=crop" },
-    { title: "Protection for Critical Software, Hardware, and Firmware", image: "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=1400&auto=format&fit=crop" },
-    { title: "Secure Transfer", image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=1400&auto=format&fit=crop" },
+    { title: "SOC Analyst – Level 1", image: "/jobroles/1.png" },
+    { title: "SOC Analyst – Level 2", image: "/jobroles/2.png" },
+    { title: "Threat Hunter", image: "/jobroles/3.png" },
+    { title: "Incident Responder", image: "/jobroles/4.png" },
+    { title: "SOC Manager", image: "/jobroles/5.png" },
   ];
 
   const [active, setActive] = useState(2);
@@ -91,7 +93,7 @@ function SolutionsCarousel() {
   return (
     <div className="relative">
       <div className="flex items-center justify-between mb-6">
-        <h2 className="text-white text-4xl md:text-5xl font-bold">Our Solutions</h2>
+        <h2 className="text-white text-4xl md:text-5xl font-bold">Job Roles</h2>
         <div className="hidden md:flex items-center gap-3">
           <button onClick={prev} className="h-10 w-10 rounded-full bg-blue-600 text-white flex items-center justify-center active:scale-95">←</button>
           <button onClick={next} className="h-10 w-10 rounded-full bg-blue-600 text-white flex items-center justify-center active:scale-95">→</button>
@@ -118,15 +120,7 @@ function SolutionsCarousel() {
             );
           })}
         </div>
-        <div className="mt-8 md:mt-10 flex justify-center">
-          <Link
-            href="/solutions"
-            className="inline-flex items-center h-[48px] md:h-[52px] px-8 text-base font-bold text-white rounded-[28px] border border-white/80 hover:bg-white hover:text-black transition-colors"
-          >
-            Explore Our Solutions
-            <span className="ml-2 flex h-5 w-5 items-center justify-center rounded-full bg-white text-black">→</span>
-          </Link>
-        </div>
+       
       </div>
     </div>
   );
@@ -382,6 +376,88 @@ function FAQsSection() {
   );
 }
 
+function WhatIsSOCSection() {
+  return (
+    <section className="relative w-full overflow-hidden py-24 md:py-32">
+      <div className="absolute inset-0 -z-10" style={{ backgroundImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.95) 55%, rgba(0, 0, 0, 1) 100%)' }}></div>
+      <div className="absolute inset-0 -z-10 soc-grid"></div>
+      <div className="container mx-auto max-w-7xl px-6 md:px-8">
+        <div className="text-center mb-10">
+          <div className="text-white text-3xl md:text-4xl font-bold">What is a Security Operations Center (SOC)?</div>
+          <p className="text-gray-300 max-w-3xl mx-auto mt-3">A SOC is the mission control hub of cybersecurity — where experts monitor, detect, investigate, and respond to threats 24/7. At Atlanta SOC, we help you master every skill needed to become a world-class cyber defender.</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center mb-16">
+          <div>
+            <div className="text-white text-3xl md:text-4xl font-bold mb-3">Understand the Core of Cyber Defense.</div>
+            <p className="text-gray-300">A SOC is where organizations protect digital assets in real time. Our training makes you job-ready by teaching tools, workflows, and attacks handled by real SOC teams.</p>
+          </div>
+          <div className="rounded-[20px] ring-1 ring-white/10 bg-white/5 backdrop-blur-sm p-6 md:p-8 relative overflow-hidden">
+            <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-transparent to-black/30" />
+            <svg viewBox="0 0 240 160" className="w-full h-[220px] md:h-[260px]" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="10" y="10" width="220" height="140" rx="12" stroke="rgba(255,255,255,0.35)" />
+              <path d="M40 110c20-20 40-20 60 0 20 20 40 20 60 0" stroke="#00C8FF" strokeWidth="2" opacity="0.8" />
+              <circle cx="120" cy="70" r="26" stroke="#6E00FF" strokeWidth="2" opacity="0.8" />
+              <path className="dash" d="M120 44v52" stroke="#00C8FF" strokeWidth="2" />
+              <path className="dash" d="M94 70h52" stroke="#00C8FF" strokeWidth="2" />
+              <path d="M30 40h80" stroke="rgba(255,255,255,0.25)" />
+              <path d="M30 52h60" stroke="rgba(255,255,255,0.25)" />
+              <path d="M30 64h70" stroke="rgba(255,255,255,0.25)" />
+            </svg>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          <div className="group rounded-[20px] ring-1 ring-white/10 bg-white/5 backdrop-blur-sm p-6 transition-all hover:scale-[1.02] hover:ring-cyan-300/40 hover:shadow-[0_0_24px_rgba(0,200,255,0.35)]">
+            <svg viewBox="0 0 24 24" className="mb-4 h-8 w-8 text-white/80" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><path d="M12 4l8 4v6c0 4.418-3.582 8-8 8s-8-3.582-8-8V8l8-4Z" /><path d="M9 13l3 3 4-4" /></svg>
+            <div className="text-white font-semibold text-lg mb-1">SOC Fundamentals</div>
+            <div className="text-gray-300 text-sm">Learn how SOC teams function, handle attacks, and secure organizations with 24/7 monitoring and defense operations.</div>
+          </div>
+          <div className="group rounded-[20px] ring-1 ring-white/10 bg-white/5 backdrop-blur-sm p-6 transition-all hover:scale-[1.02] hover:ring-cyan-300/40 hover:shadow-[0_0_24px_rgba(0,200,255,0.35)]">
+            <svg viewBox="0 0 24 24" className="mb-4 h-8 w-8 text-white/80" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="2" /><path d="M7 12h10M7 8h6" /></svg>
+            <div className="text-white font-semibold text-lg mb-1">SIEM & Log Analysis</div>
+            <div className="text-gray-300 text-sm">Master tools like Splunk, ELK, and QRadar. Understand logs, create detection rules, and analyze real attack patterns.</div>
+          </div>
+          <div className="group rounded-[20px] ring-1 ring-white/10 bg-white/5 backdrop-blur-sm p-6 transition-all hover:scale-[1.02] hover:ring-cyan-300/40 hover:shadow-[0_0_24px_rgba(0,200,255,0.35)]">
+            <svg viewBox="0 0 24 24" className="mb-4 h-8 w-8 text-white/80" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><circle cx="12" cy="12" r="5" /><path d="M2 12h4M18 12h4M12 2v4M12 18v4" /></svg>
+            <div className="text-white font-semibold text-lg mb-1">Threat Intelligence</div>
+            <div className="text-gray-300 text-sm">Identify attacker behavior, malware patterns, and emerging threats using global intelligence feeds.</div>
+          </div>
+          <div className="group rounded-[20px] ring-1 ring-white/10 bg-white/5 backdrop-blur-sm p-6 transition-all hover:scale-[1.02] hover:ring-cyan-300/40 hover:shadow-[0_0_24px_rgba(0,200,255,0.35)]">
+            <svg viewBox="0 0 24 24" className="mb-4 h-8 w-8 text-white/80" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><path d="M12 3l8 6-8 6-8-6 8-6Z" /><path d="M12 9v6" /></svg>
+            <div className="text-white font-semibold text-lg mb-1">Incident Response</div>
+            <div className="text-gray-300 text-sm">Respond to cyber attacks with structured steps—triage, containment, eradication, recovery, and reporting.</div>
+          </div>
+          <div className="group rounded-[20px] ring-1 ring-white/10 bg-white/5 backdrop-blur-sm p-6 transition-all hover:scale-[1.02] hover:ring-cyan-300/40 hover:shadow-[0_0_24px_rgba(0,200,255,0.35)]">
+            <svg viewBox="0 0 24 24" className="mb-4 h-8 w-8 text-white/80" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><circle cx="12" cy="12" r="4" /><path d="M12 2v6M12 16v6M2 12h6M16 12h6" /></svg>
+            <div className="text-white font-semibold text-lg mb-1">Threat Hunting</div>
+            <div className="text-gray-300 text-sm">Proactively search for hidden threats using behavioral patterns, MITRE ATT&CK, and advanced detection methods.</div>
+          </div>
+          <div className="group rounded-[20px] ring-1 ring-white/10 bg-white/5 backdrop-blur-sm p-6 transition-all hover:scale-[1.02] hover:ring-cyan-300/40 hover:shadow-[0_0_24px_rgba(0,200,255,0.35)]">
+            <svg viewBox="0 0 24 24" className="mb-4 h-8 w-8 text-white/80" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><path d="M7 7h10M7 12h10M10 17h8" /><rect x="3" y="4" width="18" height="16" rx="2" /></svg>
+            <div className="text-white font-semibold text-lg mb-1">Vulnerability Management</div>
+            <div className="text-gray-300 text-sm">Learn to scan, assess, prioritize, and remediate vulnerabilities across networks, apps, and cloud systems.</div>
+          </div>
+        </div>
+
+        <div className="mt-14 text-center">
+          <div className="text-white text-2xl md:text-3xl font-bold mb-6">Become a Cyber Defender. Learn SOC the Right Way.</div>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <Link href="/course/" className="inline-flex items-center h-[48px] px-6 rounded-[24px] bg-blue-600 text-white font-semibold">Start Free Course</Link>
+            <Link href="/course/" className="inline-flex items-center h-[48px] px-6 rounded-[24px] ring-1 ring-white/15 text-white hover:bg-white/10">Explore Full SOC Path</Link>
+          </div>
+        </div>
+      </div>
+      <style jsx>{`
+        .soc-grid { background-image: radial-gradient(rgba(0,255,200,0.14) 1px, transparent 1px); background-size: 32px 32px; animation: socShift 26s linear infinite; opacity: 0.16; }
+        @keyframes socShift { 0% { background-position: 0 0; } 50% { background-position: 70px 30px; } 100% { background-position: 0 0; } }
+        .dash { stroke-dasharray: 6 6; animation: dashMove 2.2s linear infinite; }
+        @keyframes dashMove { to { stroke-dashoffset: 24; } }
+      `}</style>
+    </section>
+  );
+}
+
 export default function Home() {
   return (
     <div className="min-h-screen font-sans">
@@ -396,7 +472,7 @@ export default function Home() {
             playsInline
             className="h-full w-full object-cover"
           >
-            <source src="/bg.mp4" type="video/mp4" />
+            <source src="https://oneinflu.b-cdn.net/atlanta.mp4" type="video/mp4" />
           </video>
           {/* Dark Overlay Gradient */}
           <div className="absolute inset-0 bg-black/60"></div>
@@ -408,14 +484,12 @@ export default function Home() {
           <div className="max-w-4xl md:mb-20 md:mt-20 mb-10 mt-10">
             {/* Main Headline */}
             <h1 className="text-4xl sm:text-5xl md:text-[64px] font-bold leading-tight md:leading-[1.1] text-white mb-6">
-              Engineering Cybersecurity :<br />
-              Empowering
+              Master the Art of Cyber Defense with Atlanta SOC.
             </h1>
 
             {/* Subheadline */}
             <p className="text-base sm:text-lg md:text-xl leading-relaxed max-w-[720px] mb-8" style={{ color: 'rgba(255,255,255,0.75)' }}>
-              Dedicated to protecting operational technology and critical infrastructure with robust
-              solutions tailored to tomorrow&apos;s challenges.
+              Hands-on SOC training, real attack simulations, and industry-ready certification paths for future Cybersecurity Analysts.
             </p>
 
             {/* Primary CTA Button */}
@@ -425,7 +499,7 @@ export default function Home() {
                 className="inline-flex items-center h-[48px] sm:h-[52px] px-8 text-base font-bold text-white rounded-[28px] transition-all hover:opacity-90"
                 style={{ background: 'linear-gradient(90deg, #0055FF, #6E00FF)' }}
               >
-                EXPERIENCE CYBERSECURITY
+                Start Learning
                 <span className="ml-2 flex h-5 w-5 items-center justify-center rounded-full bg-white text-blue-600">
                   →
                 </span>
@@ -445,10 +519,10 @@ export default function Home() {
                       className="text-[14px] uppercase tracking-[1px]"
                       style={{ color: 'rgba(255,255,255,0.6)' }}
                     >
-                      CUSTOMERS
+                      JOBS AVAILABLE
                     </span>
                   </div>
-                  <CountUp end={250} suffix="+" className="text-3xl sm:text-4xl md:text-[48px] font-bold text-white mt-1 block" />
+                  <CountUp end={350} suffix="K+" className="text-3xl sm:text-4xl md:text-[48px] font-bold text-white mt-1 block" />
                 </div>
               </div>
 
@@ -461,10 +535,10 @@ export default function Home() {
                       className="text-[14px] uppercase tracking-[1px]"
                       style={{ color: 'rgba(255,255,255,0.6)' }}
                     >
-                      PARTNERS
+                      AVERAGE SALARY
                     </span>
                   </div>
-                  <CountUp end={150} suffix="+" className="text-3xl sm:text-4xl md:text-[48px] font-bold text-white mt-1 block" />
+                  <CountUp prefix="$" end={72} suffix="K+" className="text-3xl sm:text-4xl md:text-[48px] font-bold text-white mt-1 block" />
                 </div>
               </div>
 
@@ -477,10 +551,10 @@ export default function Home() {
                       className="text-[14px] uppercase tracking-[1px]"
                       style={{ color: 'rgba(255,255,255,0.6)' }}
                     >
-                      DEPLOYMENTS
+                      CERTIFICATION PATHS
                     </span>
                   </div>
-                  <CountUp end={1500} suffix="+" className="text-3xl sm:text-4xl md:text-[48px] font-bold text-white mt-1 block" />
+                  <CountUp end={15} suffix="+" className="text-3xl sm:text-4xl md:text-[48px] font-bold text-white mt-1 block" />
                 </div>
               </div>
 
@@ -493,10 +567,10 @@ export default function Home() {
                       className="text-[14px] uppercase tracking-[1px]"
                       style={{ color: 'rgba(255,255,255,0.6)' }}
                     >
-                      COUNTRIES
+                      PLACEMENT SUCCESS
                     </span>
                   </div>
-                  <CountUp end={21} suffix="+" className="text-3xl sm:text-4xl md:text-[48px] font-bold text-white mt-1 block" />
+                  <CountUp end={92} suffix="%" className="text-3xl sm:text-4xl md:text-[48px] font-bold text-white mt-1 block" />
                 </div>
               </div>
             </div>
@@ -507,19 +581,18 @@ export default function Home() {
             <div className="flex flex-col md:flex-row items-start justify-between gap-6">
               <div className="w-full md:w-3/4 md:pr-8">
                 <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
-                  Transform Your Organization with Cybersecurity Automation
+                 Launch a High-Income <br /> Cybersecurity Career with Atlanta SOC
                 </h2>
               </div>
               <div className="w-full md:w-1/4 md:pl-8">
                 <p className="text-gray-300 mb-6">
-                  Optimize your operations across the board with our comprehensive range of AI solutions designed to streamline processes that your business needs.
-                </p>
-                <Link href="/solutions" className="inline-flex items-center text-white">
+                  Gain real-world SOC skills, hands-on SIEM experience, and job-ready confidence through our practical, industry-aligned cybersecurity programs. </p>
+                {/* <Link href="/solutions" className="inline-flex items-center text-white">
                   READ MORE
                   <span className="ml-2 flex h-5 w-5 items-center justify-center rounded-full bg-white text-black">
                     →
                   </span>
-                </Link>
+                </Link> */}
               </div>
             </div>
           </div>
@@ -528,7 +601,10 @@ export default function Home() {
 
      
 
-      <section className="relative w-full overflow-hidden py-20 md:py-28 lg:py-36">
+      
+      <WhatIsSOCSection />
+
+      {/* <section className="relative w-full overflow-hidden py-20 md:py-28 lg:py-36">
         <div className="absolute inset-0 -z-10 mission-bg"></div>
         <div className="absolute bottom-0 left-0 w-24 h-12 md:w-40 md:h-16 bg-black rounded-tr-[24px]"></div>
         <div className="absolute bottom-0 right-0 w-28 h-14 md:w-52 md:h-20 bg-black rounded-tl-[24px]"></div>
@@ -583,16 +659,15 @@ export default function Home() {
             }
           }
         `}</style>
-      </section>
+      </section> */}
 
-      <section className="relative w-full overflow-hidden py-24 bg-black">
+      <section className="relative w-full overflow-hidden pb-24 bg-black">
         <div className="absolute inset-0 -z-10" style={{ backgroundColor: '#000000' }}></div>
         <div className="container mx-auto max-w-7xl px-6 md:px-8">
           <SolutionsCarousel />
         </div>
       </section>
 
-      
       <section className="relative w-full overflow-hidden py-28 md:py-36">
         <div className="absolute inset-0 -z-10" style={{ backgroundImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.96) 50%, rgba(0,72,255,0.35) 100%), repeating-linear-gradient(to right, rgba(0,119,255,0.06) 0px, rgba(0,119,255,0.06) 1px, transparent 1px, transparent 30px)' }}></div>
         <div className="container mx-auto max-w-7xl px-6 md:px-8">
