@@ -3,10 +3,14 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const current = (pathname?.replace(/\/$/, '') || '/');
+  const isActive = (href: string) => ((href.replace(/\/$/, '') || '/') === current);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -45,21 +49,21 @@ const Header = () => {
 
         {/* Navigation Links */}
         <nav className="hidden md:flex items-center space-x-6">
-          <Link href="/" className="text-white hover:text-gray-300 transition-colors border-b-2 border-white">
+          <Link href="/" className={`text-white hover:text-gray-300 transition-colors ${isActive('/') ? 'border-b-2 border-white' : ''}`}>
             Home
           </Link>
-          <Link href="/about/" className="text-white hover:text-gray-300 transition-colors">
+          <Link href="/about/" className={`text-white hover:text-gray-300 transition-colors ${isActive('/about') ? 'border-b-2 border-white' : ''}`}>
             About Us
           </Link>
           
-          <Link href="/course/" className="text-white hover:text-gray-300 transition-colors">
+          <Link href="/course/" className={`text-white hover:text-gray-300 transition-colors ${isActive('/course') ? 'border-b-2 border-white' : ''}`}>
             Course
           </Link>
          
-          <Link href="/blog/" className="text-white hover:text-gray-300 transition-colors">
+          <Link href="/blog/" className={`text-white hover:text-gray-300 transition-colors ${isActive('/blog') ? 'border-b-2 border-white' : ''}`}>
             Blog
           </Link>
-          <Link href="/contact/" className="text-white hover:text-gray-300 transition-colors">
+          <Link href="/contact/" className={`text-white hover:text-gray-300 transition-colors ${isActive('/contact') ? 'border-b-2 border-white' : ''}`}>
             Contact
           </Link>
         </nav>
@@ -90,11 +94,11 @@ const Header = () => {
       {menuOpen && (
         <div className="md:hidden border-t border-white/10 bg-black">
           <nav className="container mx-auto px-6 py-4 flex flex-col gap-3">
-            <Link href="/" className="text-white py-2" onClick={() => setMenuOpen(false)}>Home</Link>
-            <Link href="/about/" className="text-white py-2" onClick={() => setMenuOpen(false)}>About Us</Link>
-            <Link href="/course/" className="text-white py-2" onClick={() => setMenuOpen(false)}>Course</Link>
-            <Link href="/blog/" className="text-white py-2" onClick={() => setMenuOpen(false)}>Blog</Link>
-            <Link href="/contact/" className="text-white py-2" onClick={() => setMenuOpen(false)}>Contact</Link>
+            <Link href="/" className={`text-white py-2 ${isActive('/') ? 'text-cyan-300' : ''}`} onClick={() => setMenuOpen(false)}>Home</Link>
+            <Link href="/about/" className={`text-white py-2 ${isActive('/about') ? 'text-cyan-300' : ''}`} onClick={() => setMenuOpen(false)}>About Us</Link>
+            <Link href="/course/" className={`text-white py-2 ${isActive('/course') ? 'text-cyan-300' : ''}`} onClick={() => setMenuOpen(false)}>Course</Link>
+            <Link href="/blog/" className={`text-white py-2 ${isActive('/blog') ? 'text-cyan-300' : ''}`} onClick={() => setMenuOpen(false)}>Blog</Link>
+            <Link href="/contact/" className={`text-white py-2 ${isActive('/contact') ? 'text-cyan-300' : ''}`} onClick={() => setMenuOpen(false)}>Contact</Link>
           </nav>
         </div>
       )}
@@ -103,5 +107,4 @@ const Header = () => {
 };
 
 export default Header;
-
 
