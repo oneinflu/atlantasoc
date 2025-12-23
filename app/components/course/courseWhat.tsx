@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import type { ComponentType } from 'react';
 
 export default function CourseWhat() {
   const pillars = [
@@ -41,7 +42,7 @@ export default function CourseWhat() {
   );
 }
 
-function Pillar({ index, title, Icon, offset, rot }: { index: number; title: string; Icon: (props: { className?: string }) => JSX.Element; offset: { x: number; y: number }; rot: number }) {
+function Pillar({ index, title, Icon, offset, rot }: { index: number; title: string; Icon: ComponentType<{ className?: string }>; offset: { x: number; y: number }; rot: number }) {
   return (
     <motion.button
       type="button"

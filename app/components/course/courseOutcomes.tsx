@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { JSX, useEffect, useMemo, useRef, useState } from 'react';
 
 type Outcome = { title: string; desc: string; icon: (props: { className?: string }) => JSX.Element };
 

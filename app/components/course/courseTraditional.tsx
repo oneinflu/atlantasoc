@@ -19,7 +19,7 @@ export default function CourseTraditional() {
   const listVariants = { hidden: {}, visible: { transition: { staggerChildren: 0.08 } } };
   const itemVariants = {
     hidden: { opacity: 0, y: 8 },
-    visible: { opacity: 1, y: 0, transition: { ease: [0.22, 1, 0.36, 1], duration: 0.18 } },
+    visible: { opacity: 1, y: 0 },
   };
 
   const LeftIcon = ({ i }: { i: number }) => (
@@ -57,11 +57,11 @@ export default function CourseTraditional() {
         <div className="text-headline text-2xl md:text-3xl font-semibold mb-3">WHAT’S BROKEN TODAY</div>
         <div className="text-muted text-sm mb-10 max-w-[760px]">Split contrast: what most programs teach vs what enterprises actually need.</div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true, amount: 0.4 }} transition={{ ease: [0.22, 1, 0.36, 1], duration: 0.5 }} className="rounded-[24px] ring-1 ring-white/10 bg-white/5 p-7 md:p-8">
+          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true, amount: 0.4 }} transition={{ ease: 'easeInOut', duration: 0.5 }} className="rounded-[24px] ring-1 ring-white/10 bg-white/5 p-7 md:p-8">
             <div className="text-muted text-sm mb-4">What most programs teach</div>
             <motion.ul variants={listVariants} initial="hidden" whileInView="visible" viewport={{ once: true }} className="space-y-2.5">
               {left.map((t, i) => (
-                <motion.li key={t} variants={itemVariants} className="flex items-start gap-3 text-body text-[13px] sm:text-sm md:text-base leading-relaxed px-3 py-2 md:py-2.5 rounded-[12px] transition-all ease-lux dur-micro hover:bg-white/5">
+                <motion.li key={t} variants={itemVariants} transition={{ duration: 0.18 }} className="flex items-start gap-3 text-body text-[13px] sm:text-sm md:text-base leading-relaxed px-3 py-2 md:py-2.5 rounded-[12px] transition-all ease-lux dur-micro hover:bg-white/5">
                   <LeftIcon i={i} />
                   <span className="leading-snug">{t}</span>
                 </motion.li>
@@ -69,16 +69,16 @@ export default function CourseTraditional() {
             </motion.ul>
           </motion.div>
 
-          <motion.div initial={{ opacity: 0, x: 24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.4 }} transition={{ ease: [0.22, 1, 0.36, 1], duration: 0.6, delay: 0.12 }} className="relative rounded-[24px] p-[2px]"
+          <motion.div initial={{ opacity: 0, x: 24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.4 }} transition={{ ease: 'easeInOut', duration: 0.6, delay: 0.12 }} className="relative rounded-[24px] p-[2px]"
             style={{ background: 'linear-gradient(180deg, rgba(0,216,255,0.8), rgba(0,216,255,0.25))' }}>
             <div className="rounded-[22px] ring-1 ring-cyan-300/40 bg-white/5 p-7 md:p-8 relative">
               <div className="absolute inset-0 rounded-[22px]" style={{ boxShadow: '0 22px 64px rgba(0,216,255,0.18)' }}></div>
               <div className="relative">
                 <div className="text-headline text-sm mb-2">What enterprises actually need</div>
-                <motion.div initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ ease: [0.22, 1, 0.36, 1], duration: 0.5, delay: 0.15 }} className="h-[2px] w-full origin-left bg-gradient-to-r from-cyan-300 to-transparent mb-3" />
+                <motion.div initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ ease: 'easeInOut', duration: 0.5, delay: 0.15 }} className="h-[2px] w-full origin-left bg-gradient-to-r from-cyan-300 to-transparent mb-3" />
                 <motion.ul variants={listVariants} initial="hidden" whileInView="visible" viewport={{ once: true }} className="space-y-2.5">
                   {right.map((t, i) => (
-                    <motion.li key={t} variants={itemVariants} className="flex items-start gap-3 text-white text-[13px] sm:text-sm md:text-base leading-relaxed px-3 py-2 md:py-2.5 rounded-[12px] transition-all ease-lux dur-micro hover:bg-white/10">
+                    <motion.li key={t} variants={itemVariants} transition={{ duration: 0.18 }} className="flex items-start gap-3 text-white text-[13px] sm:text-sm md:text-base leading-relaxed px-3 py-2 md:py-2.5 rounded-[12px] transition-all ease-lux dur-micro hover:bg-white/10">
                       <RightIcon i={i} />
                       <span className="leading-snug">{t}</span>
                     </motion.li>

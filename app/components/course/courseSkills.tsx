@@ -18,8 +18,8 @@ export default function CourseSkills() {
         <div className="text-headline text-2xl md:text-3xl font-semibold mb-3">SKILLS YOU WILL MASTER</div>
         <div className="text-muted text-sm mb-10 max-w-[900px]">Stacked, scroll-activated blocks. Active panel sharpens while others stay visible and soften.</div>
         <div className="space-y-8">
-          {blocks.map((b, i) => (
-            <SkillBlock key={b.title} index={i} title={b.title} items={b.items} />
+          {blocks.map((b) => (
+            <SkillBlock key={b.title} title={b.title} items={b.items} />
           ))}
         </div>
       </div>

@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { JSX, useRef, useState } from 'react';
 
 type Role = {
   title: string;

@@ -33,8 +33,7 @@ export default function Footer() {
             <div className="text-white font-semibold mb-3">Company</div>
             <ul className="space-y-2 text-gray-300">
               <li><Link href="/about" className="hover:text-white">About</Link></li>
-              <li><Link href="/partners" className="hover:text-white">Partners</Link></li>
-              <li><Link href="/careers" className="hover:text-white">Careers</Link></li>
+           
               <li><Link href="/contact" className="hover:text-white">Contact</Link></li>
             </ul>
           </div>
@@ -43,19 +42,19 @@ export default function Footer() {
             <div className="text-white font-semibold mb-3">Programs & Solutions</div>
             <ul className="space-y-2 text-gray-300">
               <li><Link href="/services" className="hover:text-white">SOC Courses</Link></li>
-              <li><Link href="/solutions" className="hover:text-white">Solutions</Link></li>
-              <li><Link href="/use-cases" className="hover:text-white">Use Cases</Link></li>
-              <li><Link href="/blog" className="hover:text-white">Blog</Link></li>
+              <li><Link href="/" className="hover:text-white">Solutions</Link></li>
+              <li><Link href="/" className="hover:text-white">Use Cases</Link></li>
+              <li><Link href="/" className="hover:text-white">Blog</Link></li>
             </ul>
           </div>
 
           <div>
             <div className="text-white font-semibold mb-3">Resources</div>
             <ul className="space-y-2 text-gray-300">
-              <li><Link href="/careers" className="hover:text-white">Career Paths</Link></li>
-              <li><Link href="/careers#salaries" className="hover:text-white">Salaries (Atlanta)</Link></li>
-              <li><Link href="/solutions#docs" className="hover:text-white">Docs & Guides</Link></li>
-              <li><Link href="/contact#support" className="hover:text-white">Support</Link></li>
+              <li><Link href="/" className="hover:text-white">Career Paths</Link></li>
+              <li><Link href="/" className="hover:text-white">Salaries (Atlanta)</Link></li>
+              <li><Link href="/" className="hover:text-white">Docs & Guides</Link></li>
+              <li><Link href="/" className="hover:text-white">Support</Link></li>
             </ul>
           </div>
         </div>
@@ -73,9 +72,9 @@ export default function Footer() {
         <div className="container mx-auto max-w-7xl px-6 md:px-8 py-6 flex flex-col md:flex-row md:items-center md:justify-between">
           <div className="text-gray-400 text-sm">© {new Date().getFullYear()} Atlanta SOC. All rights reserved.</div>
           <div className="mt-3 md:mt-0 flex gap-4 text-gray-300 text-sm">
-            <Link href="/privacy" className="hover:text-white">Privacy</Link>
-            <Link href="/terms" className="hover:text-white">Terms</Link>
-            <Link href="/security" className="hover:text-white">Security</Link>
+            <Link href="/" className="hover:text-white">Privacy</Link>
+            <Link href="/" className="hover:text-white">Terms</Link>
+            <Link href="/" className="hover:text-white">Security</Link>
           </div>
         </div>
       </div>

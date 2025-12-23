@@ -97,7 +97,7 @@ const Header = () => {
             <Link href="/" className={`text-white py-2 ${isActive('/') ? 'text-cyan-300' : ''}`} onClick={() => setMenuOpen(false)}>Home</Link>
             <Link href="/about/" className={`text-white py-2 ${isActive('/about') ? 'text-cyan-300' : ''}`} onClick={() => setMenuOpen(false)}>About Us</Link>
             <Link href="/course/" className={`text-white py-2 ${isActive('/course') ? 'text-cyan-300' : ''}`} onClick={() => setMenuOpen(false)}>Course</Link>
-            <Link href="/blog/" className={`text-white py-2 ${isActive('/blog') ? 'text-cyan-300' : ''}`} onClick={() => setMenuOpen(false)}>Blog</Link>
+           
             <Link href="/contact/" className={`text-white py-2 ${isActive('/contact') ? 'text-cyan-300' : ''}`} onClick={() => setMenuOpen(false)}>Contact</Link>
           </nav>
         </div>
