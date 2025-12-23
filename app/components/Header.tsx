@@ -70,7 +70,7 @@ const Header = () => {
 
         {/* Contact CTA */}
         <Link 
-          href="/contact/" 
+          href="https://learn-range.hackercentral.in/login" 
           className="hidden md:inline-flex rounded-full border border-white text-white px-5 py-1.5 text-sm hover:bg-white hover:text-black transition-colors items-center"
         >
           STUDENT LOGIN
